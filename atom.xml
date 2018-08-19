@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://grisse.xyz/"/>
-  <updated>2018-08-19T04:50:43.402Z</updated>
+  <updated>2018-08-19T03:26:47.453Z</updated>
   <id>https://grisse.xyz/</id>
   
   <author>
@@ -15,31 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>hehehehe</title>
-    <link href="https://grisse.xyz/posts/2aa5d070.html"/>
-    <id>https://grisse.xyz/posts/2aa5d070.html</id>
-    <published>2018-08-19T04:49:00.000Z</published>
-    <updated>2018-08-19T04:50:43.402Z</updated>
-    
-    <content type="html"><![CDATA[<p>#FUCK！！！</p><p>#FUCK….FUCK..</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;#FUCK！！！&lt;/p&gt;
-&lt;p&gt;#FUCK….FUCK..&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-      <category term="life" scheme="https://grisse.xyz/tags/life/"/>
-    
-  </entry>
   
   <entry>
     <title>Hello World</title>
