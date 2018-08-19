@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <!--
         © Material Theme
-        https://github.com/viosey/hexo-theme-material
-        Version: 1.5.6 -->
+             Version: 1.5.6 -->
     <script>
         window.materialVersion = "1.5.6"
         // Delete localstorage with these tags
@@ -280,6 +279,8 @@
     <!-- Custom Head -->
     
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
 </head>
 
 
@@ -443,7 +444,7 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=986476&auto=1&height=66"></iframe>
+        <div class="aplayer" data-id="986476" data-server="netease" data-type="song"></div>
 
 <p>欢迎来到我的博客! 这个博客创建于2018年8月，在这之前折腾过一段时间wordpress，功能非常强大。现在只想老老实实的写篇文章，利用GitHub Page搭建了这个博客，由<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>驱动，主题是<a href="https://github.com/viosey/hexo-theme-material" target="_blank" rel="noopener">material</a>。文章评论系统使用<a href="https://disqus.com/" target="_blank" rel="noopener">Disqus</a>,如果你发现文章结尾没有显示，请尝试给disqus.com添加代理。</p>
 <h3 id="关于自己"><a href="#关于自己" class="headerlink" title="关于自己"></a>关于自己</h3><p>grisse  [ɡri:s]</p>
@@ -496,26 +497,81 @@
                 <!-- Post Comments -->
                 
                     
-    <!-- 使用 DISQUS -->
+    <!-- 使用 DISQUS_CLICK -->
 <div id="disqus-comment">
     <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #757575;
+            text-shadow: 0;
+            display: none
+        }
+</style>
+	
+<div class="btn_click_load"> 
+    <button class="disqus_click_btn">Read Comments (Make sure disq.us, disquscdn.com and disqus.com can load properly)</button>
+</div>
+
 <script type="text/javascript">
     var disqus_config = function () {
         this.page.url = 'https://grisse.xyz/about/index.html';  // Replace PAGE_URL with your page's canonical URL variable
         this.page.identifier = 'https://grisse.xyz/about/index.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
-<script type="text/ls-javascript" id="disqus-thread-script">
-    queue.offer(function() {
-            (function() { // DON'T EDIT BELOW THIS LINE
-                var d = document;
-                var s = d.createElement('script');
-                s.src = '//grisse.disqus.com/embed.js';
-                s.setAttribute('data-timestamp', + new Date());
-                (d.head || d.body).appendChild(s);
-            })();
-        });
+
+<script type="text/ls-javascript" id="disqus-lazy-load-script">
+    $.ajax({
+        url: 'https://disqus.com/next/config.json',
+        timeout: 4000,
+        type: 'GET',
+        success: (function() {
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//grisse.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+            $('.disqus_click_btn').css('display','none');
+        })(),
+        error: function() {
+          $('.disqus_click_btn').css('display','block');
+        }
+    });
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//grisse.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.disqus_click_btn').css('display','none');
+    });
 </script>
+  	
 
 </div>
 <style>
@@ -622,7 +678,7 @@
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2018/08/">August 2018<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2018/08/">August 2018<span class="sidebar_archives-count">2</span></a>
             </ul>
         </li>
         
@@ -640,7 +696,7 @@
             </a>
             <ul class="dropdown-menu">
                 <li>
-                
+                <a class="sidebar_archives-link" href="/categories/BLOG/">BLOG<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
@@ -764,6 +820,7 @@
             </div>
         </div>
     
+<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
 </footer>
 
 
@@ -813,7 +870,7 @@
 
 
    <!-- 使用 DISQUS js 代码 -->
-<script id="dsq-count-scr" src="//grisse.disqus.com/count.js" async></script>
+
 
 
 
