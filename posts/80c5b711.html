@@ -515,18 +515,20 @@
 <h2 id="HTTPS环境"><a href="#HTTPS环境" class="headerlink" title="HTTPS环境"></a>HTTPS环境</h2><p>现在使用https的网站越来越多，<a href="https://en.wikipedia.org/wiki/Google_chrome" target="_blank" rel="noopener">google chrome</a>也将把所有HTTP站点标记为’不安全’。<br>另外使用github搭建hexo也强制要求全站https了，网站格式一般为”<a href="https://xxx.github.io&quot;" target="_blank" rel="noopener">https://xxx.github.io&quot;</a><br>然后…我们再用上面的方法发现网易云音乐插件已经不能正常使用了~<br>由于网易云目前并不支持https，所以我们需要通过<strong>Aplayer</strong>插件来实现音乐播放。</p>
 <p>首先，我们需要引用两个JS文件和一个CSS文件：</p>
 <ol>
-<li><p>APlayer.min.js和APlayer.min.css</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li>APlayer.min.js和APlayer.min.css<pre><code class="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css&quot;&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
 </li>
-<li><p>Meting.min.js</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>一般的，将APlayer.min.css和APlayer.min.js代码插入到/layout/????/header.ejs里面,将Meting.min.js代码插入到/layout/????/footer.ejs里面</p>
-<blockquote>
+<li>Meting.min.js<pre><code class="html">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+一般的，将APlayer.min.css和APlayer.min.js代码插入到/layout/????/header.ejs里面,将Meting.min.js代码插入到/layout/????/footer.ejs里面<blockquote>
 <p>注:????根据不同主题可为不同的路径</p>
 </blockquote>
-<p>上述准备工作做完后，只需在插入音乐的地方添加：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"aplayer"</span> <span class="attr">data-id</span>=<span class="string">"986476"</span> <span class="attr">data-server</span>=<span class="string">"netease"</span> <span class="attr">data-type</span>=<span class="string">"song"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+</li>
+</ol>
+<p>上述准备工作做完后，只需在插入音乐的地方添加：</p>
+<pre><code class="html">&lt;div class=&quot;aplayer&quot; data-id=&quot;986476&quot; data-server=&quot;netease&quot; data-type=&quot;song&quot;&gt;&lt;/div&gt;
+</code></pre>
 <p>其中的参数如下，加粗表示必须填写</p>
 <ul>
 <li><strong>data-id: 歌曲/专辑/歌单 ID</strong><ul>
@@ -563,10 +565,13 @@
 </ul>
 </li>
 </ul>
-<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>如果下面的音乐可以正常播放，则此方法未失效。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"aplayer"</span> <span class="attr">data-id</span>=<span class="string">"31673404"</span> <span class="attr">data-server</span>=<span class="string">"netease"</span> <span class="attr">data-type</span>=<span class="string">"song"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>如果下面的音乐可以正常播放，则此方法未失效。</p>
+<pre><code class="html">&lt;div class=&quot;aplayer&quot; data-id=&quot;31673404&quot; data-server=&quot;netease&quot; data-type=&quot;song&quot;&gt;&lt;/div&gt;
+</code></pre>
 <div class="aplayer" data-id="31673404" data-server="netease" data-type="song"></div>
 
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"aplayer"</span> <span class="attr">data-id</span>=<span class="string">"2099228567"</span> <span class="attr">data-server</span>=<span class="string">"netease"</span> <span class="attr">data-type</span>=<span class="string">"playlist"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="html">&lt;div class=&quot;aplayer&quot; data-id=&quot;2099228567&quot; data-server=&quot;netease&quot; data-type=&quot;playlist&quot;&gt;&lt;/div&gt;
+</code></pre>
 <div class="aplayer" data-id="2099228567" data-server="netease" data-type="playlist"></div>
 
 
@@ -1004,6 +1009,10 @@
 <!-- Import prettify js  -->
 
 
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
 
 <!-- Window Load -->
 <!-- add class for prettify -->
@@ -1014,6 +1023,10 @@
     });
 
     
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
     
 </script>
 
