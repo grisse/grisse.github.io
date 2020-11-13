@@ -1,1 +1,1 @@
-重定向到语雀网站。https://www.yuque.com/geruishi
+重定向到语雀网站。https://www.yuque.com/ruishi
